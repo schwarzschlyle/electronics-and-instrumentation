@@ -1,0 +1,41 @@
+blink through analog
+
+
+without voltage
+
+int sensorPin = A0;
+int ledPin = 13;
+int sensorValue = 0;
+void setup(){
+pinMode(ledPin, OUTPUT);
+}
+void loop(){
+sensorValue = analogRead(sensorPin); //read the value from the sensor
+digitalWrite(ledPin, HIGH);
+delay(sensorValue);
+digitalWrite(ledPin, LOW);
+delay(sensorValue);
+}
+
+
+
+
+with voltage
+
+int sensorPin = A0;
+int ledPin = 13;
+int sensorValue = 0;
+int voltage = 0;
+void setup(){
+Serial.begin(9600);
+pinMode(ledPin, OUTPUT);
+}
+void loop(){
+sensorValue = analogRead(sensorPin); //read the value from the sensor
+voltage = sensorValue * 5.0/1023;
+Serial.println(voltage);
+digitalWrite(ledPin, HIGH);
+delay(sensorValue);
+digitalWrite(ledPin, LOW);
+delay(sensorValue);
+}
