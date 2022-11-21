@@ -1,0 +1,16 @@
+int clock = 13;
+
+void setup() {
+pinMode(clock, OUTPUT);
+digitalWrite(clock, LOW);
+digitalWrite(clock, HIGH);
+digitalWrite(clock, LOW);
+digitalWrite(clock, HIGH);
+
+}
+void loop() {
+digitalWrite(clock, LOW);
+delay(250);
+digitalWrite(clock, HIGH);
+delay(250);
+}
