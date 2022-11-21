@@ -2,23 +2,42 @@
 
 
 
-/*
-Blink
-Turns on an LED on for one second, then off for one second, repeatedly.
-This example code is in the public domain.
-*/
-// Pin 13 has an LED connected on most Arduino boards.
-// give it a name:
-int led = 13;
-// the setup routine runs once when you press reset:
+
+int led1 = 13;
+int led2 = 12;
+int led3 = 11;
+int led4 = 10;
+int inc = 0;
+int inc_change = 0;
+int init_del = 100;
 void setup() {
-// initialize the digital pin as an output.
-pinMode(led, OUTPUT);
+pinMode(led1, OUTPUT);
+pinMode(led2, OUTPUT);
+pinMode(led3, OUTPUT);
+pinMode(led4, OUTPUT);
 }
-// the loop routine runs over and over again forever:
+
 void loop() {
-digitalWrite(led, HIGH); // turn the LED on (HIGH is the voltage level)
-delay(200); // wait for a second since delay time unit is in ms
-digitalWrite(led, LOW); // turn the LED off by making the voltage LOW
-delay(200); // wait for a second
+// left to right
+digitalWrite(led1, HIGH);
+delay(init_del - inc);
+digitalWrite(led1, LOW);
+digitalWrite(led2, HIGH);
+delay(init_del - inc);
+digitalWrite(led2, LOW);
+digitalWrite(led3, HIGH);
+delay(init_del - inc);
+digitalWrite(led3, LOW);
+digitalWrite(led4, HIGH);
+delay(init_del - inc);
+digitalWrite(led4, LOW);
+// right to left
+digitalWrite(led3, HIGH);
+delay(init_del - inc);
+digitalWrite(led3, LOW);
+digitalWrite(led2, HIGH);
+delay(init_del - inc);
+digitalWrite(led2, LOW);
+digitalWrite(led1, HIGH);
+inc = inc + inc_change;
 }
